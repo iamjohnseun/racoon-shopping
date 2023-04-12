@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
+body {
+  background: #E1E8EE;
+  color: #333;
+  font-family: "Fira Sans", Roboto, sans-serif;
+  padding: 10px;
+}
+
+#logout {
+  text-decoration: none;
+  color: #333;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#addItem {
+  padding: 0 20px;
+}
+
+.form-inline {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+label {
+  margin-bottom: 0;
+  font-size: 10px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  background-color: #2179C1;
+  color: #fff;
+  border: none;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: -35px;
+}
+
+button span {
+  margin-top: -2px;
+}
+
+input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #2179C1;
+  padding: 5px;
+  width: 300px;
+  margin-right: 5px;
+}
+
+#notebook {
+  background: white;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  position: relative;
+  max-width: 375px;
+  min-height: 450px;
+}
+
+#notebook:before {
+  content: " ";
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  right: -8px;
+  bottom: -10px;
+  top: 10px;
+  width: 20px;
+  background: linear-gradient(to right, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray);
+  z-index: -1;
+}
+
+#notebook:after {
+  content: " ";
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  bottom: -10px;
+  height: 20px;
+  left: 10px;
+  right: 5px;
+  background: linear-gradient(to bottom, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray, white, gray);
+  z-index: -1;
+}
+
+#notebook h1 {
+  border-bottom: 4px double #F3A4C4;
+  padding: 50px 20px 10px;
+}
+
+#notebook ul {
+  list-style: none;
+  padding: 0;
+}
+
+#notebook ul li {
+  border-bottom: 1px solid #2179C1;
+  font-size: 16px;
+  padding: 10px 0;
+  position: relative;
+}
+
+#notebook ul p {
+  margin: 0;
+  padding-left: 60px;
+  position: relative;
+}
+
+#notebook ul p:before {
+  background: transparent;
+  content: "";
+  border-radius: 100%;
+  border: 1px solid #333;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  margin: auto;
+}
+
+#notebook ul p:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  left: 37px;
+  margin: auto;
+  border: 3px solid transparent;
+  border-top: 0;
+  border-right: 0;
+  border-radius: 2px;
+  height: 0;
+  width: 0;
+  transform-origin: bottom left;
+  transform: rotate(-45deg);
+  transition: all 0.3s;
+  max-height: 0;
+  max-width: 0;
+  border-color: transparent;
+}
+
+#notebook ul sup {
+  color: white;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background: #FEBC06;
+  display: inline-block;
+  overflow: hidden;
+  padding: 1px 0;
+  max-width: 0;
+  transition: all 0.5s;
+  white-space: nowrap;
+}
+
+#notebook ul sup:after {
+  content: " ";
+}
+
+#notebook ul input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  z-index: 100;
+}
+
+#notebook ul input:hover {
+  cursor: pointer;
+}
+
+#notebook ul input:hover+p sup {
+  max-width: 170px;
+  padding: 1px 10px;
+}
+
+#notebook ul input:checked+p:before {
+  background: #51B27F;
+  border-color: #51B27F;
+}
+
+#notebook ul input:checked+p:after {
+  animation: checkDown 0.2s ease-in-out, checkUp 0.25s 0.2s ease-in-out;
+  height: 7px;
+  width: 15px;
+  max-height: 7px;
+  max-width: 15px;
+  border-color: #163839;
+}
+
+.date {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 auto;
+  top: 30px;
+  height: 50px;
+  width: 50px;
+  border: 4px double #51B27F;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.date .month {
+  letter-spacing: 2px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -25px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.date .day {
+  background: white;
+  display: inline-block;
+  font-size: 2em;
+  margin: 5px 0 0 -15px;
+}
+
+.date sup {
+  position: relative;
+  bottom: 10px;
+}
+
+@keyframes checkDown {
+  from {
+    border-left-color: #163839;
+    height: 0;
+    width: 0;
+  }
+
+  to {
+    border-left-color: #163839;
+    height: 7px;
+    width: 0;
+  }
+}
+
+@keyframes checkUp {
+  from {
+    border-bottom-color: transparent;
+    width: 0;
+  }
+
+  to {
+    border-bottom-color: #163839;
+    width: 15px;
+  }
+}
+
+@media (min-width: 500px) {
+  body {
+    padding: 10px 30px;
+  }
+
+  #notebook h1 {
+    padding-top: 60px;
+  }
+
+  #notebook ul sup:before {
+    content: "i mean ";
+  }
+
+  .date {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 0;
+    margin: 15px;
+  }
+}
